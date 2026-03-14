@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+  <meta name="keywords" content="Discord, Bot, Moderação, Diversão, Economia, cassino">
+  <meta name="og:title" content="Clarinha Bot - Discord">
+  <meta name="og:description" content="Clarinha é um bot de Apostas, Diversão e Economia, com vários comandos únicos de apostas para você deixar seus membros entretidos.">
+  <meta name="og:image" content="https://i.postimg.cc/jdPqPJVs/481-Sem-Titulo-20230911133402-2.png">
+  <meta name="theme-color" content="#00FFFF">
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" type="image/png" href="/img/clarinha_pipoca.png">
+  
+  <!-- Removido ID do AdSense para segurança -->
+  <script async src="https://pagead2.googlesyndication.com"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <header id="header">
+    <a id="logo" href="/">
+      <h1>Clarinha</h1>
+    </a>
+    <nav id="nav">
+
+      <ul id="menu">
+        <li><a href="comandos"><i class="fa-solid fa-terminal" style="color: #f0f0f0;"></i> comandos</a></li>
+        <li><a href="daily"><i class="fa-solid fa-sack-dollar" style="color: #ededed;"></i> daily</a></li>
+        <li><a href="vips"><i class="fa-solid fa-gem" style="color: #ededed;"></i> vips</a></li>
+
+      </ul>
+      <button id="nome_avatar_mobile"><img src="" height="40px" alt="" id="avatar">Carregando...</button>
+      <button id="botao_menu"><img src="./img/menu_abrir.png" alt="menu" height="30px"></button>
+    </nav>
+  </header>
+
+  <div class="principal">
+
+    <div class="apresentacao">
+
+      <div class="img_apresentacao">
+        <img src="./img/clarinha_feliz.webp" alt="" height="220px">
+        <div class="underline_img"></div>
+      </div>
+
+      <div class="titulo_subtitulo">
+        <h1 class="titulo_apresentacao">O melhor bot tudo-em-um para o Discord!</h1>
+        <h3 class="subtitulo_apresentacao">A Clarinha é um bot feito exclusivamente para suprir sua necessidade de se divertir, contando com comandos de economia, jogos de azar e de utilidades!</h3>
+        <div class="caixa_btn_adicione">
+          <!-- Client_ID removido do link de autorização -->
+          <a href="https://discord.com" class="btn_adicione"><i class="fa-solid fa-star fa-bounce" style="color: #ffff21;"></i> Me adicione</a>
+        </div>
+      </div>
+
+      <div class="img_apresentacao_2">
+        <img src="./img/clarinha_feliz.webp" alt="" height="220px">
+        <div class="underline_img"></div>
+      </div>
+
+    </div>
+
+    <div class="linha_divisao"></div>
+
+    <div class="conheca-me">
+
+      <div class="img_apresentacao_0">
+        <h1>Quem sou?</h1>
+        <img src="./img/clarinha_pipoca.png" alt="" height="180px">
+        <div class="underline_img_2"></div>
+      </div>
+
+      <div class="conheca-me_texto">
+        <p>Clarinha é um bot focado em finanças, jogos de azar e entretenimento, sendo uma boa opção para servidores que buscam se divertir no Discord. Seus comandos são inovadores e nunca vistos em outros bots do Discord, o que o torna única e perfeita para o seu servidor.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer_links">
+      <a href="termos"><i class="fa-solid fa-pen-ruler" style="color: #d9d9d9;"></i> Termos de condições</a>
+      <a href="https://discord.gg/E7yPtEYHUG"><i class="fa-solid fa-headset" style="color: #dbdbdb;"></i> Suporte</a>
+      <a id="discloud" href="https://discloudbot.com/"><img src="./img/discloud.png" alt="discloud" height="20px"> Discloud</a>
+    </div>
+    <div class="copyright">
+      <h1>© Clarinha - 2023</h1>
+    </div>
+  </footer>
+
+  <script>
+    function setOrUpdateCookie(cookie, value, ms) {
+        var d = new Date();
+        d.setTime(d.getTime() + ms);
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cookie + "=" + value + ";" + expires + ";path=/";
+    }
+
+    async function loadToken() {
+        const params = new URLSearchParams(window.location.search);
+
+        if (params.has('code')) {
+            try {
+                const code = params.get('code');
+
+                // Endpoint de callback para troca de código por token (seguro pois o processamento é no backend)
+                const response = await fetch("/logincallback", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        code: code,
+                    }),
+                    headers: {
+                        "Content-Type": "application/json",
+                    }
+                })
+
+                const json = await response.json()
+
+                console.log(json)
+
+                await new Promise(resolve => setTimeout(resolve, 1000))
+
+                setOrUpdateCookie("token", json.token_type + " " + json.access_token, json.expires_in)
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        window.open(localStorage.getItem("lastpage"), "_self");
+    }
+
+    loadToken()
+  </script>
+</body>
+
+</html>
