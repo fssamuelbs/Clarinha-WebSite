@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="index.css">
+  <title>Daily</title>
+  <meta name="keywords" content="Discord, Bot, Moderação, Diversão, Economia, cassino">
+  <meta name="og:title" content="Clarinha Bot - Discord">
+  <meta name="og:description" content="Clarinha é um bot de Apostas, Diversão e Economia, com vários comandos únicos de apostas para você deixar seus membros entretidos.">
+  <meta name="og:image" content="https://i.postimg.cc/jdPqPJVs/481-Sem-Titulo-20230911133402-2.png">
+  <meta name="theme-color" content="#00FFFF">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.2/popup.min.js"></script>
+  <link rel="icon" type="image/png" href="/img/clarinha_pipoca.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8556296178790983"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <header id="header">
+    <a id="logo" href="index.html">
+      <h1>Clarinha</h1>
+    </a>
+    <nav id="nav">
+
+      <ul id="menu">
+        <li><a id="botaopremium" href="comandos.html"><i class="fa-solid fa-terminal" style="color: #ffffff;"></i> Comandos</a></li>
+        <li><a id="botaopremium" href="daily.html"><i class="fa fa-gift" aria-hidden="true"></i> Daily</a></li>
+        <li><a id="botaopremium" href="vips.html"><i class="fa fa-star" aria-hidden="true"></i> Premium</a></li>
+
+      </ul>
+      <button id="nome_avatar_mobile"><img src="./img/avatar.jpg" height="40px" alt="" id="avatar"> Guilherme</button>
+      <button id="botao_menu"><img src="./img/menu_abrir.png" alt="menu" height="30px"></button>
+    </nav>
+  </header>
+
+  <div class="principal_daily">
+    <div class="caixa_recompensa">
+      <h1 class="titulo_daily">Recompensa Diária!</h1>
+      <h3 class="h3_daily">Clique em resgatar para coletar suas candys diárias.</h3>
+      <div id="caixa_img_daily">
+        <i id="img_daily" class="fa-solid fa-gift fa-beat-fade" style="color: #ffffff;"></i>
+      </div>
+      <p id="aviso_daily"><strong>Atenção:</strong> A venda ou troca de Candys por itens com valor material (como Nitro, dinheiro, presentes, etc.) é proibida! Se você for descoberto fazendo isso, poderá ser banido do servidor e até mesmo do sistema da Clarinha. Não faça uso de <strong>VPN/emuladores</strong> ou quaisquer aplicação para tentar resgatar o daily mais de uma vez. Seja uma pessoa sensata e jogue limpo, isso vale pra vida. Não faça mal uso de suas candys e transfira elas apenas para pessoas de sua confiança. Nós da <strong>Equipe da Clarinha</strong> não nos responsabilizamos pelos atos dos membros, e se caso você enviar suas candys e se arrepender, nós não iremos lhe reembolsar, Então fique atento, o discord está cheio de espertinhos.</p>
+
+      <p id="valor_daily"></p>
+      <div class="g-recaptcha" data-sitekey="6LcIMqgoAAAAAOWSfz7zWOLU8OV2zmgmSiAfCDOm"></div>
+      <button style="cursor: pointer;" id="botao_daily" onclick="botao_daily">🎁 Resgatar</button>
+    </div>
+
+
+    <div class="abrirespaco">
+    
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footerrodape">
+        <ul class="nomi">
+            <li><a href="./index.html" class="kdcmx">Home</a></li>
+            <li><a href="./termos.html" class="kdcmx">Termos de Serviço e Privacidade</a></li>
+            <li><a href="https://discord.gg/pu725H4DXa" class="kdcmx"> Suporte</a></li>
+            <li><a href="./comandos.html" class="kdcmx">Comandos</a></li>
+            <li><a href="./daily.html" class="kdcmx">Daily</a></li>
+            <li><a href="./vips.html" class="kdcmx">Premium</a></li>
+        </ul>
+  
+        <style>
+        .kdcmx {
+        color: white;
+        text-decoration: none;
+        }
+  
+  
+    </style>
+    <div class="social-media">
+      <p>Redes Sociais</p>
+    
+    </div>
+  
+    <div class="social-media">
+      
+      <a href="https://discord.gg/pu725H4DXa"><img class="small-image" src="./img/discordicon (1).png" alt="Discord"></a>
+      <a href="https://instagram/perfil/clarinhadiscordbot"><img class="small-image" src="./img/instaicon.png" alt="Instagram"></a>
+      <a href="https://github/perfil/clarinhadiscordbot"><img class="small-image" src="./img/githubicon.png" alt="Github"></a>
+      
+    </div>
+    <div class="discloudlogocss">
+      <a href="https://discloud.app"> <img class="discloudlogo" src="./img/discloudlogo.png" alt="discloud"></a>
+  
+    </div>
+    <div class="direitosautorais">
+      © Clarinha - 2022-2024 / Todos os Direitos Reservados
+    </div>
+  
+  </div>
+  
+
+  <script defer src="main.js"></script>
+
+  <script>
+    function dailyError(e) {
+      valordaily.innerHTML = "<strong>Erro:</strong><br><br>" + e
+      valordaily.style.color = "red"
+      
+      botaodaily.removeAttribute("disabled")
+    }
+
+    var botaodaily = document.getElementById("botao_daily")
+    var valordaily = document.getElementById("valor_daily")
+
+    botaodaily.addEventListener("click", async () => {
+      if (!getCookie("token")) return loginURL()
+
+      botaodaily.setAttribute("disabled", true)
+
+      if (grecaptcha.getResponse().length <= 0) {
+        return dailyError("Resolva o captcha para poder pegar seu daily!")
+      }
+
+      var response
+
+      try {
+        response = await fetch("/daily/claim", {
+          method: "POST",
+          body: JSON.stringify({
+            access_token: getCookie("token"),
+            captcha: grecaptcha.getResponse()
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          }
+        })
+      } catch (e) {
+        return dailyError(e)
+      }
+
+      await grecaptcha.reset()
+
+      if (!response) {
+        return dailyError("No response from server")
+      }
+
+      const json = await response.json()
+
+      if (json["error"]) {
+        return dailyError(json["error"])
+      }
+
+      const popup = new Popup({
+        id: "dailysuccess",
+        title: "Parabéns!",
+        content: `Você faturou <strong>${json["amount"]} candys</strong> hoje! Volte em <strong>24 horas</strong> para coletar sua recompensa novamente.`,
+        showImmediately: true,
+        fadeTime: "0.5s",
+      })
+
+      botaodaily.removeAttribute("disabled")
+    })
+  </script>
+</body>
+
+</html>
